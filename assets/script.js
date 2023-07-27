@@ -85,3 +85,41 @@ function showQuizResult() {
 }
 
 startButton.addEventListener('click', startQuiz);
+
+function showQuizResult() {
+    questionContainer.style.display = 'none';
+  
+    // "All Done!" page elements
+    const allDoneHeader = document.createElement('h2');
+    allDoneHeader.textContent = 'All Done!';
+    allDoneHeader.classList.add('all-done-header');
+  
+    const finalScoreText = document.createElement('p');
+    finalScoreText.textContent = `Your score: ${score}`;
+    finalScoreText.classList.add('final-score');
+  
+    const restartButton = document.createElement('button');
+    restartButton.textContent = 'Restart Quiz';
+    restartButton.classList.add('restart-button');
+    restartButton.addEventListener('click', restartQuiz);
+  
+    const allDoneContainer = document.createElement('div');
+    allDoneContainer.classList.add('all-done-container');
+    allDoneContainer.appendChild(allDoneHeader);
+    allDoneContainer.appendChild(finalScoreText);
+    allDoneContainer.appendChild(restartButton);
+  
+    
+    document.querySelector('.main-outer-container').appendChild(allDoneContainer);
+  }
+  
+  function restartQuiz() {
+    
+    currentQuestionIndex = 0;
+    score = 0;
+    const allDoneContainer = document.querySelector('.all-done-container');
+    allDoneContainer.remove();
+  
+    document.querySelector('.quiz-start-box').style.display = 'block';
+  }
+  
