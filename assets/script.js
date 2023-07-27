@@ -68,8 +68,9 @@ function checkAnswer(event) {
 
   if (selectedAnswer === currentQuestion.correctAnswer) {
     score++;
+    alert('Correct!');
   } else {
-   
+    alert('Wrong!');
   }
 
   currentQuestionIndex++;
