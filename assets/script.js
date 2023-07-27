@@ -1,5 +1,5 @@
 // Quiz Questions
-const question = [
+const quizData = [
     {
       question: "Commonly used data types DO not include:",
       answers: ["Strings", "Booleans", "Alerts", "Numbers"],
@@ -26,3 +26,61 @@ const question = [
       correctAnswer: "Alerts"
       },  
 ];
+
+
+const startButton = document.getElementById('startButton');
+const questionContainer = document.getElementById('question-container');
+const questionText = document.querySelector('.question');
+const answerButtons = document.querySelectorAll('.btn');
+
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+// Function to start the quiz
+function startQuiz() {
+  document.querySelector('.quiz-start-box').style.display = 'none';
+  questionContainer.style.display = 'block';
+  displayQuestion();
+}
+
+
+function displayQuestion() {
+  if (currentQuestionIndex >= quizData.length) {
+   
+    showQuizResult();
+    return;
+  }
+
+  const currentQuestion = quizData[currentQuestionIndex];
+
+  questionText.textContent = currentQuestion.question;
+
+  answerButtons.forEach((button, index) => {
+    button.textContent = currentQuestion.answers[index];
+    button.addEventListener('click', checkAnswer);
+  });
+}
+
+function checkAnswer(event) {
+  const selectedAnswer = event.target.textContent;
+  const currentQuestion = quizData[currentQuestionIndex];
+
+  if (selectedAnswer === currentQuestion.correctAnswer) {
+    score++;
+  } else {
+   
+  }
+
+  currentQuestionIndex++;
+  displayQuestion();
+}
+
+
+function showQuizResult() {
+  questionContainer.style.display = 'none';
+  
+  console.log('Quiz completed! Your score:', score);
+}
+
+startButton.addEventListener('click', startQuiz);
