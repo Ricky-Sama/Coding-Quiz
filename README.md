@@ -1,6 +1,6 @@
 # Coding-Quiz
 
-Try out the Coding Quiz to test and see how much you know about coding!
+Try out the Coding Quiz to test and see how much you know about coding! Highscore and Timer still need more work.
 
 ## Mock-Up
 
